@@ -1,18 +1,39 @@
 {
-  "name": "project_1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./build/index.js",
-  "scripts": {
-    "start":  "tsc && cp ./src/index.html ./build/index.html && cp ./src/index.css ./build/index.css && http-server -p 3000 ./build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && cp ./src/index.html ./build/index.html && cp ./src/index.css ./build/index.css"
-  },
-  "author": "Neftaly Polanco",
-  "license": "ISC",
+  "name": "neftaly_polanco_p1",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.39",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.7.5"
   },
-  "devDependencies": {
-    "typescript": "^3.8.3"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
