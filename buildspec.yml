@@ -11,5 +11,5 @@ phases:
     commands:
       - npm run build
   post_build:
-    commands:
+     commands:
       - aws s3 sync ./build s3://nef-bucket-200406-java-react
