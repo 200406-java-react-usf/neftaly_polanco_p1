@@ -14,12 +14,12 @@ import { store } from './Store';
 function App() {
 
   return (
-    <div className="App">
+    <div className='App'>
       <Provider store={store}>
         <Router>
-          <AppBar color="primary" position="static">
+          <AppBar color='primary' position='static'>
             <Toolbar>
-              <Typography variant="h5" color="inherit">
+              <Typography variant='h5' color='inherit'>
                 <NavbarComponent />
               </Typography>
             </Toolbar>

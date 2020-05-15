@@ -13,14 +13,14 @@ export interface IRegisterProps {
 
 const useStyles = makeStyles({
     registerContainer: {
-        display: "flex",
-        justifyContent: "center",
+        display: 'flex',
+        justifyContent: 'center',
         margin: 20,
         marginTop: 40,
         padding: 20
     },
     registerForm: {
-        width: "50%"
+        width: '50%'
     }
 });
 
@@ -61,69 +61,69 @@ const RegisterComponent = (props: IRegisterProps) => {
     }
 
     return (
-        props.authUser ? <Redirect to="/home" /> :
+        props.authUser ? <Redirect to='/home' /> :
         <div className={classes.registerContainer}>
             
             <form className={classes.registerForm}>
-                <Typography align="center" variant="h4">Register for Revaboards!</Typography>
+                <Typography align='center' variant='h4'>Register for Revaboards!</Typography>
 
-                <FormControl margin="normal" fullWidth>
-                    <InputLabel htmlFor="firstName">First Name</InputLabel>
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='firstName'>First Name</InputLabel>
                     <Input 
                         onChange={updateFormField} 
                         value={firstName} 
-                        id="firstName" type="text" 
-                        placeholder="Enter your first name" />
+                        id='firstName' type='text' 
+                        placeholder='Enter your first name' />
                 </FormControl>
 
-                <FormControl margin="normal" fullWidth>
-                    <InputLabel htmlFor="lastName">Last Name</InputLabel>
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='lastName'>Last Name</InputLabel>
                     <Input 
                         onChange={updateFormField} 
                         value={lastName} 
-                        id="lastName" type="text" 
-                        placeholder="Enter your last name" />
+                        id='lastName' type='text' 
+                        placeholder='Enter your last name' />
                 </FormControl>
 
-                <FormControl margin="normal" fullWidth>
-                    <InputLabel htmlFor="email">Email Address</InputLabel>
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='email'>Email Address</InputLabel>
                     <Input 
                         onChange={updateFormField} 
                         value={email} 
-                        id="email" type="text" 
-                        placeholder="Enter your email address" />
+                        id='email' type='text' 
+                        placeholder='Enter your email address' />
                 </FormControl>
 
-                <FormControl margin="normal" fullWidth>
-                    <InputLabel htmlFor="username">Username</InputLabel>
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='username'>Username</InputLabel>
                     <Input 
                         onChange={updateFormField} 
                         value={username} 
-                        id="username" type="text" 
-                        placeholder="Enter your username" />
+                        id='username' type='text' 
+                        placeholder='Enter your username' />
                 </FormControl>
 
-                <FormControl margin="normal" fullWidth>
-                    <InputLabel htmlFor="password">Password</InputLabel>
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='password'>Password</InputLabel>
                     <Input 
                         onChange={updateFormField}
                         value={password}
-                        id="password" type="password"
-                        placeholder="Enter your password"/>
+                        id='password' type='password'
+                        placeholder='Enter your password'/>
                 </FormControl>
 
                 <br/><br/>
                 <Button 
                     onClick={signUp} 
-                    variant="contained" 
-                    color="primary" 
-                    size="medium">Register
+                    variant='contained' 
+                    color='primary' 
+                    size='medium'>Register
                 </Button>
                 <br/><br/>
                 {
                     props.errorMessage 
                         ? 
-                    <Alert severity="error">{props.errorMessage}</Alert>
+                    <Alert severity='error'>{props.errorMessage}</Alert>
                         :
                     <></>
                 }

@@ -1,5 +1,5 @@
-import { User } from "../dtos/user";
-import { ERSClient } from "./ers-client";
+import { User } from '../dtos/user';
+import { ERSClient } from './ers-client';
 
 export async function authenticate(username: string, password: string): Promise<User> {
     let response = await ERSClient.post('/auth', {username, password});

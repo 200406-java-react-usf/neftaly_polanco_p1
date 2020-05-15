@@ -1,6 +1,6 @@
-import { User } from "../dtos/user";
-import { ERSClient } from "./ers-client";
-import { NewUser } from "../dtos/new-user";
+import { User } from '../dtos/user';
+import { ERSClient } from './ers-client';
+import { NewUser } from '../dtos/new-user';
 
 export async function register(newUser: NewUser) {
     let response = await ERSClient.post('/users', newUser);

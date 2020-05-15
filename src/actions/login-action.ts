@@ -17,6 +17,7 @@ export const loginAction = (username: string, password: string)  => async (dispa
             payload: authUser
         });
     } catch (e) {
+        
         let status = e.response.status;
         if(status === 400) {
             dispatch ({

@@ -1,6 +1,6 @@
-import { IState } from "../../reducers";
-import RegisterComponent from "./RegisterComponent";
-import { connect } from "react-redux";
+import { IState } from '../../reducers';
+import RegisterComponent from './RegisterComponent';
+import { connect } from 'react-redux';
 import { registerAction } from '../../actions/register-action';
 
 const mapStateToProps = (state: IState) => {
