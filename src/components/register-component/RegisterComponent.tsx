@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Typography, FormControl, InputLabel, Input, Button, makeStyles } from '@material-ui/core';
+import { 
+    Typography,
+    FormControl, 
+    InputLabel, 
+    Input, 
+    Button, 
+    makeStyles
+    } from '@material-ui/core';
 import { Redirect } from 'react-router';
 import { Alert } from '@material-ui/lab';
 import { NewUser } from '../../dtos/new-user';
@@ -19,6 +26,7 @@ const useStyles = makeStyles({
         marginTop: 40,
         padding: 20
     },
+
     registerForm: {
         width: '50%'
     }
@@ -28,14 +36,22 @@ const RegisterComponent = (props: IRegisterProps) => {
 
     const classes = useStyles();
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [role_name, setRole] = useState('');
+    
 
     let updateFormField = (e: any) => {
         switch (e.currentTarget.id) {
+            case 'username':
+                setUsername(e.target.value);
+                break;
+            case 'password':
+                setPassword(e.target.value);
+                break;
             case 'firstName':
                 setFirstName(e.target.value);
                 break;
@@ -45,27 +61,44 @@ const RegisterComponent = (props: IRegisterProps) => {
             case 'email':
                 setEmail(e.target.value);
                 break;
-            case 'username':
-                setUsername(e.target.value);
+            case 'role_name':
+                setRole(e.target.value);
                 break;
-            case 'password':
-                setPassword(e.target.value);
-                break;
+            
             default:
                 console.warn(`Improper binding detected on element with id: ${e.currentTarget.id}`);
         }
     }
 
-    let signUp = async () => {
-        props.registerAction(new NewUser(firstName, lastName, email, username, password));
+    let addUser = async () => {
+        props.registerAction(new NewUser(username, password, firstName, lastName, email, role_name));
     }
-
+        //console.log(props.authUser.role_name);
     return (
-        props.authUser ? <Redirect to='/home' /> :
-        <div className={classes.registerContainer}>
-            
+        (!props.authUser || props.authUser.role_name !== 'ADMIN') ? <Redirect to='/home' /> :
+        <>
+        <h1>{props.authUser.role_name}</h1>
+        <div className={classes.registerContainer}>            
             <form className={classes.registerForm}>
                 <Typography align='center' variant='h4'>Register for Revaboards!</Typography>
+
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='username'>Username</InputLabel>
+                    <Input 
+                        onChange={updateFormField} 
+                        value={username} 
+                        id='username' type='text' 
+                        placeholder='Enter your username' />
+                </FormControl>
+
+                <FormControl margin='normal' fullWidth>
+                    <InputLabel htmlFor='password'>Password</InputLabel>
+                    <Input 
+                        onChange={updateFormField}
+                        value={password}
+                        id='password' type='password'
+                        placeholder='Enter your password'/>
+                </FormControl>
 
                 <FormControl margin='normal' fullWidth>
                     <InputLabel htmlFor='firstName'>First Name</InputLabel>
@@ -95,29 +128,22 @@ const RegisterComponent = (props: IRegisterProps) => {
                 </FormControl>
 
                 <FormControl margin='normal' fullWidth>
-                    <InputLabel htmlFor='username'>Username</InputLabel>
+                    <InputLabel htmlFor='role_name'>Enter a Role Name</InputLabel>
                     <Input 
                         onChange={updateFormField} 
-                        value={username} 
-                        id='username' type='text' 
-                        placeholder='Enter your username' />
-                </FormControl>
-
-                <FormControl margin='normal' fullWidth>
-                    <InputLabel htmlFor='password'>Password</InputLabel>
-                    <Input 
-                        onChange={updateFormField}
-                        value={password}
-                        id='password' type='password'
-                        placeholder='Enter your password'/>
-                </FormControl>
+                        value={role_name} 
+                        id='role_name' type='text' 
+                        placeholder='Enter a Role Name' />
+                </FormControl> 
 
                 <br/><br/>
+
                 <Button 
-                    onClick={signUp} 
+                    onClick={addUser} 
                     variant='contained' 
                     color='primary' 
-                    size='medium'>Register
+                    size='medium'>
+                    Register
                 </Button>
                 <br/><br/>
                 {
@@ -129,6 +155,7 @@ const RegisterComponent = (props: IRegisterProps) => {
                 }
             </form>
         </div>
+        </>
     );
 
 }

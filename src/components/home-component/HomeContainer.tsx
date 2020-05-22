@@ -1,15 +1,17 @@
 import { IState } from '../../reducers';
 import HomeComponent from './HomeComponent';
 import { connect } from 'react-redux';
+import { logoutAction } from '../../actions/logout-action';
 
 
 const mapStateToProps = (state: IState) => {
     return {
-        username: state.login.authUser?.username
+        authUser: state.login.authUser
     }
 }
 
-const mapDispatchToProps = {    
+const mapDispatchToProps = {  
+    logoutAction  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);

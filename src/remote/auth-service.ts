@@ -3,6 +3,7 @@ import { ERSClient } from './ers-client';
 
 export async function authenticate(username: string, password: string): Promise<User> {
     let response = await ERSClient.post('/auth', {username, password});
+    console.log(response);
     return await response.data;
 }
 

@@ -6,7 +6,6 @@ import { registerActionTypes } from "../actions/register-action"
 
 
 
-
 const initialState: IRegisterState = {
     // @ts-ignore
     authUser: (null as User),

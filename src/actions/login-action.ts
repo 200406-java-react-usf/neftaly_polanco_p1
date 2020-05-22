@@ -16,6 +16,7 @@ export const loginAction = (username: string, password: string)  => async (dispa
             type: loginActionTypes.SUCCESSFUL_LOGIN,
             payload: authUser
         });
+        
     } catch (e) {
         
         let status = e.response.status;

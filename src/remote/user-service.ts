@@ -8,21 +8,32 @@ export async function register(newUser: NewUser) {
 }
 
 export async function getUsers() {
-    return await ERSClient.get('/users');
+    let response = await ERSClient.get('/users');
+    return await response.data;
 }
 
 export async function getUserById(id: number) {
-    return await ERSClient.get(`/users/${id}`);
+    let response = await ERSClient.get(`/users/${id}`);
+    return await response.data;
 }
 
 export async function getUserByUniqueKey(key: string, value: string) {
-    return await ERSClient.get(`/users?${key}=${value}`);
+    let response = await ERSClient.get(`/users?${key}=${value}`);
+    return await response.data;
 }
 
 export async function updateUser(updatedUser: User) {
-    return await ERSClient.put('/users', updatedUser);
+    let response = await ERSClient.put('/users', updatedUser);
+    return await response.data;
 }
 
 export async function deleteUserById(id: number) {
-    return await ERSClient.delete(`/users/${id}`);
+    await ERSClient.delete(`/users/${id}`);
+    return true;
+}
+
+export async function logout() {
+    let response = await ERSClient.get('/auth');
+    console.log(`response data: ${response.data}`)
+    return await response.data;
 }
