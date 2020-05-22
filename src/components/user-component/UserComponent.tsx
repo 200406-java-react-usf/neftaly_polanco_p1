@@ -43,8 +43,8 @@ const useStyles = makeStyles({
     columns: [
         {title: 'User Id', field: 'id', editable: 'never'},
         {title: 'Username', field: 'username', editable: 'always'},
-        {title: 'First Name', field: 'firstName', editable: 'always'},
-        {title: 'Last Name', field: 'lastName', editable: 'always'},
+        {title: 'First Name', field: 'first_name', editable: 'always'},
+        {title: 'Last Name', field: 'last_name', editable: 'always'},
         {title: 'Email', field: 'email', editable: 'always'},               
         {title: 'Role', field: 'role_name', editComponent:((props) => 
         (<select value={props.value || ''} onChange={e => props.onChange(e.target.value)} >
