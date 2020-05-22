@@ -50,7 +50,7 @@ const useStyles = makeStyles({
           { title: 'Receipt', field: 'receipt' , editable: 'never'},
           { title: 'Author', field: 'author' , editable: 'never'},
           { title: 'Resolver', field: 'resolver', editable: 'never' },
-          { title: 'Status', field: 'reimb_status', editable: 'never', editComponent:((props) => 
+          { title: 'Status', field: 'reimb_status', editComponent:((props) => 
           (<select value={props.value || ''} onChange={e => props.onChange(e.target.value)} >
             <option value={'DENIED'}>Denied</option>
             <option value={'PENDING'}>Pending</option>
