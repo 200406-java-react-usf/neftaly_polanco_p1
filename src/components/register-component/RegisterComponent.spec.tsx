@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RegisterComponent, {IRegisterProps} from './RegisterComponent';
-import { shallow, mount, ReactWrapper } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import { FormControl } from '@material-ui/core';
 
 
@@ -12,7 +12,7 @@ const props: IRegisterProps = {
 }
 
 const registerComponent = <RegisterComponent {...props} />;
-const wrapper = mount(<RegisterComponent { ...props}/>);   
+let wrapper = mount(<RegisterComponent { ...props}/>);   
 
 describe('<RegisterComponent />', () => {
 
@@ -34,13 +34,13 @@ describe('<RegisterComponent />', () => {
             expect(wrapper.exists()).toBeTruthy();
         });
 
-        it ('Renders 5 FormControl components', () => {
+        it ('Renders 6 FormControl components', () => {
             //wrapper.find(selector) - finds all nodes matching the selector type
-            expect(wrapper.find(FormControl)).toHaveLength(5);
+            expect(wrapper.find(FormControl)).toHaveLength(6);
         })
 
-        it('Renders 5 input elements', () => {
-            expect(wrapper.find('input')).toHaveLength(5);
+        it('Renders 6 input elements', () => {
+            expect(wrapper.find('input')).toHaveLength(6);
         });
 
         it('Renders a button elements', () => {

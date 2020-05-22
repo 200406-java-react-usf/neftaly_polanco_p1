@@ -82,8 +82,8 @@ const useStyles = makeStyles({
 
     const deleteUser = async (id: number) => {
         try{
-            await deleteUser(id);
-            getAllUsers();
+            await deleteUserById(id);
+            getUsers();
         }catch(e){
             setErrorMessage(e.response.data.reason)
         }

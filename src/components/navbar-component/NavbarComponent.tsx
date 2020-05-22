@@ -110,7 +110,7 @@ const NavbarComponent = (props: INavbarProps) => {
                              
                             <ListItemText inset>
                                 <Typography color="secondary" variant="h6">
-                                    <Link to="/logout" className={classes.logoutButton} onClick={logout}>Logout</Link>
+                                    <Link to="/login" className={classes.logoutButton} onClick={logout}>Logout</Link>
                                 </Typography>
                             </ListItemText>
                         </>

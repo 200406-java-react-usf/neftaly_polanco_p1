@@ -12,9 +12,8 @@ import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router';
 
 
-interface ILoginProps {
+export interface ILoginProps {
     authUser: User;
-    errorMessage: string;
     loginAction: (username: string, password: string) => void;
 }
 
@@ -54,11 +53,8 @@ const LoginComponent = (props: ILoginProps) => {
     let login = async () => {
         props.loginAction(username, password);
     }
-
-
     return (
         props.authUser ? <Redirect to='home' /> :
-        
         <div className={classes.loginContainer}>
             <form className={classes.loginForm}>
                 <Typography align='center' variant='h4'>Login into Expense Reimbursement System!</Typography>
@@ -89,13 +85,7 @@ const LoginComponent = (props: ILoginProps) => {
                     size="medium">Login
                 </Button>
                 <br/><br/>
-                {
-                    props.errorMessage
-                    ?
-                    <Alert severity='error'>{props.errorMessage}</Alert>
-                        :
-                        <></>
-                }
+                
             </form>
         </div>
     );

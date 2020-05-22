@@ -11,7 +11,7 @@ export const logoutActionTypes = {
 export const logoutAction = () => async (dispatch: Dispatch) => {
     try {
         let loggedOut = await logout();
-        console.log(`Successfully logged out: ${loggedOut}`);
+        //console.log(`Successfully logged out: ${loggedOut}`);
         dispatch({
             type: logoutActionTypes.SUCCESSFUL_LOGOUT,
             payload: loggedOut
