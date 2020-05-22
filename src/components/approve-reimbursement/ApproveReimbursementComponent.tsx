@@ -28,11 +28,11 @@ const useStyles = makeStyles({
     },
 
     ReimbTable: {
-        marginTop: '20'
+        width: '50%'
     }
 });
 
- const ReimbComponent = (props: IReimbProps) => {
+ const AppReimbComponent = (props: IReimbProps) => {
 
     const classes = useStyles();
     const [reimbs, setReimbsData] = useState([new Reimbursement(0, 0, '', '', '', '', '', '', '', '')]);
@@ -43,21 +43,21 @@ const useStyles = makeStyles({
     const [state, setState] = useState<TableState>({
         columns: [
           { title: 'Id', field: 'id', editable: 'never'},
-          { title: 'Amount', field: 'amount', editable: 'always', type: 'currency', cellStyle: {textAlign: 'left'} },
+          { title: 'Amount', field: 'amount', editable: 'never', type: 'currency', cellStyle: {textAlign: 'left'} },
           { title: 'Submitted (Time)', field: 'submitted' , editable: 'never', type: 'datetime'},
           { title: 'Resolved (Time)', field: 'resolved', editable: 'never', type: 'datetime'},
-          { title: 'Description', field: 'description' , editable: 'always'},
+          { title: 'Description', field: 'description' , editable: 'never'},
           { title: 'Receipt', field: 'receipt' , editable: 'never'},
           { title: 'Author', field: 'author' , editable: 'never'},
           { title: 'Resolver', field: 'resolver', editable: 'never' },
-          { title: 'Status', field: 'reimb_status', editable: 'never'},
-          { title: 'Reimb Type', field: 'reimb_type', editComponent:((props) => 
+          { title: 'Status', field: 'reimb_status', editable: 'never', editComponent:((props) => 
           (<select value={props.value || ''} onChange={e => props.onChange(e.target.value)} >
-            <option value={'LODGING'}>Denied</option>
-            <option value={'TRAVEL'}>Travel</option>
-            <option value={'FOOD'}>Food</option>
-            <option value={'OTHER'}>Other</option>
+            <option value={'DENIED'}>Denied</option>
+            <option value={'PENDING'}>Pending</option>
+            <option value={'APPROVED'}>Approved</option>
             </select>)) },
+          { title: 'Reimb Type', field: 'reimb_type', editable: 'never'}
+           
         ],
         data: [],
       });
@@ -120,7 +120,7 @@ const useStyles = makeStyles({
         </>
    )
 }
-export default ReimbComponent;
+export default AppReimbComponent;
 
 
 
